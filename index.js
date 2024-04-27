@@ -28,7 +28,7 @@ app.get("/users/:userId", async function (req, res) {
     const { Item } = await dynamoDbClient.send(new GetCommand(params));
     if (Item) {
       const { userId, name } = Item;
-      res.json({ userId, name });
+      res.json({ userId, name, message: 'Hello world' });
     } else {
       res
         .status(404)
